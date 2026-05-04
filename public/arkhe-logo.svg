@@ -1,208 +1,302 @@
-<svg width="420" height="520" viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="500" height="610" viewBox="0 0 500 610" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Shield metal fill -->
-    <linearGradient id="lgo-metal" x1="210" y1="30" x2="210" y2="370" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"  stop-color="#1a3840"/>
-      <stop offset="45%" stop-color="#0c1e22"/>
-      <stop offset="100%" stop-color="#050e10"/>
-    </linearGradient>
 
-    <!-- Bevel stroke -->
-    <linearGradient id="lgo-bevel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#7fffed"/>
-      <stop offset="40%"  stop-color="#2dd4bf"/>
-      <stop offset="100%" stop-color="#0d6e66"/>
-    </linearGradient>
-
-    <!-- Core glow behind cross -->
-    <radialGradient id="lgo-core" cx="50%" cy="50%" r="55%" gradientUnits="objectBoundingBox">
-      <stop offset="0%"   stop-color="rgba(186,250,237,0.55)"/>
-      <stop offset="55%"  stop-color="rgba(45,212,191,0.12)"/>
-      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
-    </radialGradient>
-
-    <!-- Outer halo glow -->
-    <radialGradient id="lgo-halo" cx="50%" cy="48%" r="52%" gradientUnits="objectBoundingBox">
-      <stop offset="0%"   stop-color="rgba(94,234,212,0.40)"/>
-      <stop offset="60%"  stop-color="rgba(45,212,191,0.08)"/>
-      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
-    </radialGradient>
-
-    <!-- Apex bright spot -->
-    <radialGradient id="lgo-apex" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="rgba(255,255,255,1)"/>
-      <stop offset="40%"  stop-color="rgba(186,250,237,0.6)"/>
-      <stop offset="100%" stop-color="rgba(94,234,212,0)"/>
-    </radialGradient>
-
-    <!-- Neon soft glow filter -->
-    <filter id="lgo-neon" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.8" result="b"/>
+    <!-- ── Filters ─────────────────────────────────────────── -->
+    <filter id="neon-xs"  x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neon-sm"  x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neon-md"  x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neon-lg"  x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neon-xl"  x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="text-glow" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- Strong neon (cross bars) -->
-    <filter id="lgo-neon-strong" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3.5" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <!-- ── Clip path (shield interior) ───────────────────── -->
+    <clipPath id="shield-clip">
+      <path d="M 62 28 L 438 28 L 438 278 C 438 372 346 442 250 486 C 154 442 62 372 62 278 Z"/>
+    </clipPath>
 
-    <!-- Full-shield glow drop-shadow -->
-    <filter id="lgo-shield-glow" x="-25%" y="-20%" width="150%" height="150%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <!-- ── Gradients ──────────────────────────────────────── -->
+    <linearGradient id="metal" x1="250" y1="28" x2="250" y2="486" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#18363e"/>
+      <stop offset="40%"  stop-color="#0d1f26"/>
+      <stop offset="100%" stop-color="#050d10"/>
+    </linearGradient>
+
+    <radialGradient id="core-glow" cx="250" cy="257" r="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="rgba(186,250,237,0.50)"/>
+      <stop offset="45%"  stop-color="rgba(45,212,191,0.14)"/>
+      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
+    </radialGradient>
+
+    <radialGradient id="outer-halo" cx="250" cy="257" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="rgba(94,234,212,0.30)"/>
+      <stop offset="55%"  stop-color="rgba(45,212,191,0.06)"/>
+      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
+    </radialGradient>
+
+    <radialGradient id="apex-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,1)"/>
+      <stop offset="50%"  stop-color="rgba(186,250,237,0.7)"/>
+      <stop offset="100%" stop-color="rgba(94,234,212,0)"/>
+    </radialGradient>
+
   </defs>
 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Outer halo circle behind shield                    -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <ellipse cx="210" cy="210" rx="175" ry="185" fill="url(#lgo-halo)"/>
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Background constellation dots / lines                  -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <g opacity="0.55" stroke="rgba(45,212,191,0.45)" stroke-width="0.8">
+    <line x1="20"  y1="80"  x2="80"  y2="40"/>
+    <line x1="80"  y1="40"  x2="130" y2="95"/>
+    <line x1="420" y1="40"  x2="480" y2="80"/>
+    <line x1="370" y1="95"  x2="420" y2="40"/>
+    <line x1="20"  y1="380" x2="55"  y2="430"/>
+    <line x1="445" y1="430" x2="480" y2="380"/>
+    <line x1="15"  y1="160" x2="55"  y2="200"/>
+    <line x1="445" y1="200" x2="485" y2="160"/>
+  </g>
+  <g fill="rgba(94,234,212,0.80)">
+    <circle cx="20"  cy="80"  r="2.2"/>
+    <circle cx="80"  cy="40"  r="2.8"/>
+    <circle cx="130" cy="95"  r="1.8"/>
+    <circle cx="480" cy="80"  r="2.2"/>
+    <circle cx="420" cy="40"  r="2.8"/>
+    <circle cx="370" cy="95"  r="1.8"/>
+    <circle cx="20"  cy="380" r="2.0"/>
+    <circle cx="55"  cy="430" r="1.6"/>
+    <circle cx="480" cy="380" r="2.0"/>
+    <circle cx="445" cy="430" r="1.6"/>
+    <circle cx="15"  cy="160" r="1.8"/>
+    <circle cx="485" cy="160" r="1.8"/>
+  </g>
 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Shield body                                        -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Main fill (dark metal) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Outer halo glow behind shield                         -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <ellipse cx="250" cy="257" rx="210" ry="240" fill="url(#outer-halo)"/>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Shield body (dark metallic fill)                      -->
+  <!-- ══════════════════════════════════════════════════════ -->
   <path
-    d="M 55 45 L 365 45 L 365 210 C 365 295 315 355 210 400 C 105 355 55 295 55 210 Z"
-    fill="url(#lgo-metal)"
-    stroke="url(#lgo-bevel)"
-    stroke-width="3.5"
-    filter="url(#lgo-shield-glow)"
+    d="M 62 28 L 438 28 L 438 278 C 438 372 346 442 250 486 C 154 442 62 372 62 278 Z"
+    fill="url(#metal)"
   />
 
-  <!-- Bevel ring 1 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- All shield interior content — clipped                 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <g clip-path="url(#shield-clip)">
+
+    <!-- Core radial glow behind cross -->
+    <ellipse cx="250" cy="257" rx="120" ry="135" fill="url(#core-glow)"/>
+
+    <!-- ── Central neon cross ─────────────────────────────── -->
+    <g filter="url(#neon-lg)">
+      <!-- Vertical bar -->
+      <rect x="234" y="28"  width="32" height="458" rx="4" fill="rgba(94,234,212,0.25)"/>
+      <rect x="239" y="28"  width="22" height="458" rx="3" fill="#bafaed"/>
+      <rect x="243" y="28"  width="14" height="458" rx="2" fill="#5eead4"/>
+      <!-- Horizontal bar -->
+      <rect x="62"  y="196" width="376" height="30"  rx="4" fill="rgba(94,234,212,0.25)"/>
+      <rect x="62"  y="200" width="376" height="22"  rx="3" fill="#bafaed"/>
+      <rect x="62"  y="204" width="376" height="14"  rx="2" fill="#5eead4"/>
+    </g>
+
+    <!-- ── Cross-pattée helper (reused via transform) ───── -->
+    <!-- Shape: M -s,-2.8s L s,-2.8s L .22s,-s L 2.8s,-s L 2.8s,s L .22s,s L s,2.8s L -s,2.8s L -.22s,s L -2.8s,s L -2.8s,-s L -.22s,-s Z -->
+
+    <!-- ── TOP-LEFT QUADRANT ─────────────────────────────── -->
+    <!-- teal-tinted crosses -->
+    <g fill="rgba(8,20,30,0.95)" stroke="rgba(45,212,191,0.85)" stroke-width="1.1" filter="url(#neon-xs)">
+      <!-- cross 1 - large, top center of TL -->
+      <g transform="translate(148,82)">
+        <path d="M -8,-24 L 8,-24 L 5.5,-8 L 24,-8 L 24,8 L 5.5,8 L 8,24 L -8,24 L -5.5,8 L -24,8 L -24,-8 L -5.5,-8 Z"/>
+      </g>
+      <!-- cross 2 - medium, upper-left of TL -->
+      <g transform="translate(100,128)">
+        <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+      </g>
+      <!-- cross 3 - small, center-left -->
+      <g transform="translate(160,138)" stroke="rgba(45,212,191,0.60)" stroke-width="0.9">
+        <path d="M -5,-14 L 5,-14 L 3.5,-5 L 14,-5 L 14,5 L 3.5,5 L 5,14 L -5,14 L -3.5,5 L -14,5 L -14,-5 L -3.5,-5 Z"/>
+      </g>
+      <!-- cross 4 - medium, lower-left of TL -->
+      <g transform="translate(118,168)">
+        <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+      </g>
+    </g>
+
+    <!-- ── TOP-RIGHT QUADRANT ────────────────────────────── -->
+    <!-- silver/gold-tinted crosses -->
+    <g fill="rgba(10,22,32,0.95)" stroke="rgba(180,200,230,0.70)" stroke-width="1.1" filter="url(#neon-xs)">
+      <!-- cross 1 - large -->
+      <g transform="translate(352,82)">
+        <path d="M -8,-24 L 8,-24 L 5.5,-8 L 24,-8 L 24,8 L 5.5,8 L 8,24 L -8,24 L -5.5,8 L -24,8 L -24,-8 L -5.5,-8 Z"/>
+      </g>
+      <!-- cross 2 - medium, gold tint -->
+      <g stroke="rgba(200,175,100,0.65)">
+        <g transform="translate(400,128)">
+          <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+        </g>
+      </g>
+      <!-- cross 3 - small -->
+      <g transform="translate(300,138)" stroke="rgba(180,200,230,0.50)" stroke-width="0.9">
+        <path d="M -5,-14 L 5,-14 L 3.5,-5 L 14,-5 L 14,5 L 3.5,5 L 5,14 L -5,14 L -3.5,5 L -14,5 L -14,-5 L -3.5,-5 Z"/>
+      </g>
+      <!-- cross 4 - medium, silver -->
+      <g transform="translate(382,168)">
+        <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+      </g>
+    </g>
+
+    <!-- ── BOTTOM-LEFT QUADRANT ──────────────────────────── -->
+    <g fill="rgba(8,20,30,0.95)" stroke="rgba(45,212,191,0.75)" stroke-width="1.1" filter="url(#neon-xs)">
+      <!-- cross 1 -->
+      <g transform="translate(140,262)">
+        <path d="M -8,-24 L 8,-24 L 5.5,-8 L 24,-8 L 24,8 L 5.5,8 L 8,24 L -8,24 L -5.5,8 L -24,8 L -24,-8 L -5.5,-8 Z"/>
+      </g>
+      <!-- cross 2 -->
+      <g transform="translate(100,330)" stroke="rgba(45,212,191,0.55)">
+        <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+      </g>
+      <!-- cross 3 - small -->
+      <g transform="translate(165,345)" stroke="rgba(45,212,191,0.45)" stroke-width="0.9">
+        <path d="M -5,-14 L 5,-14 L 3.5,-5 L 14,-5 L 14,5 L 3.5,5 L 5,14 L -5,14 L -3.5,5 L -14,5 L -14,-5 L -3.5,-5 Z"/>
+      </g>
+    </g>
+
+    <!-- ── BOTTOM-RIGHT QUADRANT ─────────────────────────── -->
+    <g fill="rgba(10,22,32,0.95)" stroke="rgba(180,200,230,0.65)" stroke-width="1.1" filter="url(#neon-xs)">
+      <!-- cross 1 -->
+      <g transform="translate(360,262)">
+        <path d="M -8,-24 L 8,-24 L 5.5,-8 L 24,-8 L 24,8 L 5.5,8 L 8,24 L -8,24 L -5.5,8 L -24,8 L -24,-8 L -5.5,-8 Z"/>
+      </g>
+      <!-- cross 2 - gold -->
+      <g stroke="rgba(200,175,100,0.60)">
+        <g transform="translate(400,330)">
+          <path d="M -6,-18 L 6,-18 L 4,-6 L 18,-6 L 18,6 L 4,6 L 6,18 L -6,18 L -4,6 L -18,6 L -18,-6 L -4,-6 Z"/>
+        </g>
+      </g>
+      <!-- cross 3 - small silver -->
+      <g transform="translate(300,345)" stroke="rgba(180,200,230,0.45)" stroke-width="0.9">
+        <path d="M -5,-14 L 5,-14 L 3.5,-5 L 14,-5 L 14,5 L 3.5,5 L 5,14 L -5,14 L -3.5,5 L -14,5 L -14,-5 L -3.5,-5 Z"/>
+      </g>
+    </g>
+
+  </g><!-- end clip -->
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Shield border — bright neon teal outline              -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Wide diffuse outer glow -->
   <path
-    d="M 70 60 L 350 60 L 350 210 C 350 288 305 344 210 386 C 115 344 70 288 70 210 Z"
-    fill="none"
-    stroke="rgba(94,234,212,0.50)"
-    stroke-width="1.5"
-    filter="url(#lgo-neon)"
+    d="M 62 28 L 438 28 L 438 278 C 438 372 346 442 250 486 C 154 442 62 372 62 278 Z"
+    fill="none" stroke="rgba(94,234,212,0.25)" stroke-width="18"
+    filter="url(#neon-xl)"
+  />
+  <!-- Mid glow -->
+  <path
+    d="M 62 28 L 438 28 L 438 278 C 438 372 346 442 250 486 C 154 442 62 372 62 278 Z"
+    fill="none" stroke="rgba(94,234,212,0.65)" stroke-width="6"
+    filter="url(#neon-md)"
+  />
+  <!-- Crisp bright inner line -->
+  <path
+    d="M 62 28 L 438 28 L 438 278 C 438 372 346 442 250 486 C 154 442 62 372 62 278 Z"
+    fill="none" stroke="rgba(186,250,237,0.95)" stroke-width="2.5"
   />
 
-  <!-- Bevel ring 2 (subtle) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Inner bevel ring                                      -->
+  <!-- ══════════════════════════════════════════════════════ -->
   <path
-    d="M 82 72 L 338 72 L 338 209 C 338 281 298 333 210 372 C 122 333 82 281 82 209 Z"
-    fill="none"
-    stroke="rgba(94,234,212,0.20)"
-    stroke-width="0.9"
+    d="M 78 44 L 422 44 L 422 277 C 422 363 338 428 250 469 C 162 428 78 363 78 277 Z"
+    fill="none" stroke="rgba(94,234,212,0.30)" stroke-width="1.2"
   />
 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Rivets                                             -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <g fill="#9ab8c0" stroke="#1e3c42" stroke-width="0.5">
-    <!-- top row -->
-    <circle cx="96"  cy="84"  r="2.8"/>
-    <circle cx="128" cy="84"  r="2.8"/>
-    <circle cx="162" cy="84"  r="2.8"/>
-    <circle cx="210" cy="84"  r="2.8"/>
-    <circle cx="258" cy="84"  r="2.8"/>
-    <circle cx="292" cy="84"  r="2.8"/>
-    <circle cx="324" cy="84"  r="2.8"/>
-    <!-- left edge -->
-    <circle cx="85"  cy="118" r="2.8"/>
-    <circle cx="82"  cy="158" r="2.8"/>
-    <circle cx="82"  cy="200" r="2.8"/>
-    <circle cx="86"  cy="242" r="2.8"/>
-    <circle cx="98"  cy="284" r="2.8"/>
-    <circle cx="118" cy="324" r="2.8"/>
-    <circle cx="148" cy="358" r="2.8"/>
-    <circle cx="185" cy="382" r="2.8"/>
-    <!-- right edge -->
-    <circle cx="335" cy="118" r="2.8"/>
-    <circle cx="338" cy="158" r="2.8"/>
-    <circle cx="338" cy="200" r="2.8"/>
-    <circle cx="334" cy="242" r="2.8"/>
-    <circle cx="322" cy="284" r="2.8"/>
-    <circle cx="302" cy="324" r="2.8"/>
-    <circle cx="272" cy="358" r="2.8"/>
-    <circle cx="235" cy="382" r="2.8"/>
-    <circle cx="210" cy="390" r="2.8"/>
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Rivets along top inner edge                           -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <g fill="#8ab5c0" stroke="#1a3840" stroke-width="0.5">
+    <circle cx="95"  cy="55" r="3.2"/>
+    <circle cx="130" cy="50" r="3.2"/>
+    <circle cx="170" cy="47" r="3.2"/>
+    <circle cx="210" cy="46" r="3.2"/>
+    <circle cx="250" cy="45" r="3.2"/>
+    <circle cx="290" cy="46" r="3.2"/>
+    <circle cx="330" cy="47" r="3.2"/>
+    <circle cx="370" cy="50" r="3.2"/>
+    <circle cx="405" cy="55" r="3.2"/>
+    <!-- side rivets left -->
+    <circle cx="74"  cy="100" r="3.0"/>
+    <circle cx="70"  cy="155" r="3.0"/>
+    <circle cx="68"  cy="210" r="3.0"/>
+    <circle cx="72"  cy="265" r="3.0"/>
+    <circle cx="83"  cy="316" r="3.0"/>
+    <circle cx="104" cy="362" r="3.0"/>
+    <circle cx="135" cy="402" r="3.0"/>
+    <circle cx="174" cy="434" r="3.0"/>
+    <circle cx="218" cy="456" r="3.0"/>
+    <!-- side rivets right -->
+    <circle cx="426" cy="100" r="3.0"/>
+    <circle cx="430" cy="155" r="3.0"/>
+    <circle cx="432" cy="210" r="3.0"/>
+    <circle cx="428" cy="265" r="3.0"/>
+    <circle cx="417" cy="316" r="3.0"/>
+    <circle cx="396" cy="362" r="3.0"/>
+    <circle cx="365" cy="402" r="3.0"/>
+    <circle cx="326" cy="434" r="3.0"/>
+    <circle cx="282" cy="456" r="3.0"/>
+    <circle cx="250" cy="465" r="3.0"/>
   </g>
 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Soft core glow behind cross                        -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <ellipse cx="210" cy="222" rx="100" ry="120" fill="url(#lgo-core)" opacity="0.95"/>
-
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Central neon cross                                 -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <g filter="url(#lgo-neon-strong)">
-    <!-- Vertical bar — outer halo -->
-    <rect x="196" y="80" width="28" height="296" rx="4" fill="rgba(94,234,212,0.28)"/>
-    <!-- Vertical bar — white core -->
-    <rect x="202" y="84" width="16" height="288" rx="3" fill="#bafaed"/>
-    <!-- Vertical bar — teal inner -->
-    <rect x="206" y="88" width="8"  height="280" rx="2" fill="#5eead4"/>
-
-    <!-- Horizontal bar — outer halo -->
-    <rect x="90"  y="200" width="240" height="28" rx="4" fill="rgba(94,234,212,0.28)"/>
-    <!-- Horizontal bar — white core -->
-    <rect x="94"  y="204" width="232" height="20" rx="3" fill="#bafaed"/>
-    <!-- Horizontal bar — teal inner -->
-    <rect x="98"  y="208" width="224" height="12" rx="2" fill="#5eead4"/>
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Apex flare — bright point at top center               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <g filter="url(#neon-lg)">
+    <circle cx="250" cy="28" r="18" fill="url(#apex-grad)"/>
+    <circle cx="250" cy="28" r="7"  fill="rgba(255,255,255,0.98)"/>
   </g>
 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Four cross-pattée crusader crosses in quadrants    -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <g stroke="rgba(94,234,212,0.90)" stroke-width="1.2" filter="url(#lgo-neon)">
-    <!-- top-left -->
-    <g transform="translate(148, 152)" fill="rgba(8,22,26,0.95)">
-      <path d="M -7,-20 L 7,-20 L 5,-7 L 20,-7 L 20,7 L 5,7 L 7,20 L -7,20 L -5,7 L -20,7 L -20,-7 L -5,-7 Z"/>
-    </g>
-    <!-- top-right -->
-    <g transform="translate(272, 152)" fill="rgba(8,22,26,0.95)">
-      <path d="M -7,-20 L 7,-20 L 5,-7 L 20,-7 L 20,7 L 5,7 L 7,20 L -7,20 L -5,7 L -20,7 L -20,-7 L -5,-7 Z"/>
-    </g>
-    <!-- bottom-left -->
-    <g transform="translate(148, 292)" fill="rgba(8,22,26,0.95)">
-      <path d="M -7,-20 L 7,-20 L 5,-7 L 20,-7 L 20,7 L 5,7 L 7,20 L -7,20 L -5,7 L -20,7 L -20,-7 L -5,-7 Z"/>
-    </g>
-    <!-- bottom-right -->
-    <g transform="translate(272, 292)" fill="rgba(8,22,26,0.95)">
-      <path d="M -7,-20 L 7,-20 L 5,-7 L 20,-7 L 20,7 L 5,7 L 7,20 L -7,20 L -5,7 L -20,7 L -20,-7 L -5,-7 Z"/>
-    </g>
-  </g>
-
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Apex flare — bright point at top of shield         -->
-  <!-- ═══════════════════════════════════════════════════ -->
-  <g filter="url(#lgo-neon-strong)">
-    <circle cx="210" cy="45" r="16" fill="url(#lgo-apex)"/>
-    <circle cx="210" cy="45" r="7"  fill="rgba(255,255,255,0.95)"/>
-  </g>
-
-  <!-- ═══════════════════════════════════════════════════ -->
-  <!-- Wordmark: ARKHE HOLDINGS                           -->
-  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Wordmark                                              -->
+  <!-- ══════════════════════════════════════════════════════ -->
   <text
-    x="210"
-    y="450"
+    x="250" y="545"
     text-anchor="middle"
-    font-family="'Segoe UI', 'Arial', 'Helvetica Neue', sans-serif"
-    font-size="68"
-    font-weight="800"
-    letter-spacing="8"
+    font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+    font-size="82" font-weight="900"
+    letter-spacing="6"
     fill="#ffffff"
-    filter="url(#lgo-neon)"
+    filter="url(#text-glow)"
   >ARKHE</text>
 
   <text
-    x="210"
-    y="500"
+    x="250" y="592"
     text-anchor="middle"
-    font-family="'Segoe UI', 'Arial', 'Helvetica Neue', sans-serif"
-    font-size="24"
-    font-weight="500"
-    letter-spacing="12"
-    fill="rgba(94,234,212,0.90)"
-    filter="url(#lgo-neon)"
+    font-family="'Arial','Helvetica Neue',Arial,sans-serif"
+    font-size="22" font-weight="500"
+    letter-spacing="14"
+    fill="rgba(94,234,212,0.92)"
+    filter="url(#neon-xs)"
   >HOLDINGS</text>
+
 </svg>

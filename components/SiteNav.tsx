@@ -3,7 +3,7 @@ export default function SiteNav() {
     <nav className="relative z-10 mb-10 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 shadow-2xl backdrop-blur">
       <a href="/" className="flex items-center gap-3">
         <img
-          src="/arkeh-shield.svg"
+          src="/arkhe-logo.jpeg"
           alt="Arkhe Holdings shield"
           className="h-9 w-9 drop-shadow-[0_0_18px_rgba(45,212,191,0.55)]"
         />

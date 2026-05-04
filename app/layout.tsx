@@ -48,9 +48,37 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Arkhe Holdings",
+    "url": "https://arkheholdings.net",
+    "logo": "https://arkheholdings.net/arkhe-logo.jpeg",
+    "description": "Strategic architecture for ventures across law, technology, media, and investments.",
+    "founder": {
+      "@type": "Person",
+      "name": "Brian Salsbury",
+      "jobTitle": "Founder",
+      "url": "https://arkheholdings.net/founder",
+    },
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "brian.salsbury@arkheholdings.net",
+      "contactType": "General Inquiry",
+      "url": "https://arkheholdings.net/contact",
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-[#04070a] text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
         <AmbientNetwork />
         {children}
         <Analytics />

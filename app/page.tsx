@@ -40,7 +40,7 @@ export default function Home() {
         <nav className="relative z-10 mb-10 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 shadow-2xl backdrop-blur">
           <a href="/" className="flex items-center gap-3">
             <img
-              src="/arkeh-shield.svg"
+              src="/arkhe-logo.jpeg"
               alt="Arkhe Holdings shield logo"
               className="h-9 w-9 drop-shadow-[0_0_18px_rgba(45,212,191,0.55)]"
             />
@@ -193,9 +193,9 @@ export default function Home() {
         <footer className="border-t border-white/10 py-12 text-center text-sm text-white/40">
           <div className="mb-6 flex justify-center">
             <img
-              src="/arkhe-logo.svg"
+              src="/arkhe-logo.jpeg"
               alt="Arkhe Holdings"
-              className="h-40 opacity-85 drop-shadow-[0_0_28px_rgba(45,212,191,0.30)]"
+              className="h-40 opacity-90 drop-shadow-[0_0_32px_rgba(45,212,191,0.45)]"
             />
           </div>
           <div className="mb-4 flex justify-center gap-6 text-white/50">

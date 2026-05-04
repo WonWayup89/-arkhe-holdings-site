@@ -1,94 +1,150 @@
-<svg width="256" height="280" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="220" height="240" viewBox="0 0 220 240" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="ak-metal" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#163034"/>
-      <stop offset="55%" stop-color="#0c1e21"/>
-      <stop offset="100%" stop-color="#06141700"/>
-    </linearGradient>
-    <linearGradient id="ak-bevel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5eead4"/>
-      <stop offset="50%" stop-color="#14b8a6"/>
-      <stop offset="100%" stop-color="#0d6e66"/>
-    </linearGradient>
-    <radialGradient id="ak-core" cx="50%" cy="50%" r="55%">
-      <stop offset="0%" stop-color="rgba(186,250,237,.55)"/>
-      <stop offset="60%" stop-color="rgba(45,212,191,.10)"/>
-      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
-    </radialGradient>
-    <filter id="ak-neon">
-      <feGaussianBlur stdDeviation="1.2" result="b"/>
+
+    <filter id="s-neon-xs" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="ak-neon-strong">
-      <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <filter id="s-neon-sm" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="s-neon-md" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="s-neon-lg" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="s-clip">
+      <path d="M 28 12 L 192 12 L 192 124 C 192 166 155 196 110 216 C 65 196 28 166 28 124 Z"/>
+    </clipPath>
+
+    <linearGradient id="s-metal" x1="110" y1="12" x2="110" y2="216" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#18363e"/>
+      <stop offset="45%"  stop-color="#0d1f26"/>
+      <stop offset="100%" stop-color="#050d10"/>
+    </linearGradient>
+
+    <radialGradient id="s-core" cx="110" cy="114" r="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="rgba(186,250,237,0.50)"/>
+      <stop offset="50%"  stop-color="rgba(45,212,191,0.12)"/>
+      <stop offset="100%" stop-color="rgba(45,212,191,0)"/>
+    </radialGradient>
+
+    <radialGradient id="s-apex" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,1)"/>
+      <stop offset="50%"  stop-color="rgba(186,250,237,0.7)"/>
+      <stop offset="100%" stop-color="rgba(94,234,212,0)"/>
+    </radialGradient>
+
   </defs>
 
-  <!-- Outer shield body (metallic gradient + bright bevel border) -->
-  <path d="M 30 22 L 170 22 L 170 92 C 170 138, 144 174, 100 206 C 56 174, 30 138, 30 92 Z"
-        fill="url(#ak-metal)" stroke="url(#ak-bevel)" stroke-width="3" filter="url(#ak-neon)"/>
+  <!-- Shield body -->
+  <path
+    d="M 28 12 L 192 12 L 192 124 C 192 166 155 196 110 216 C 65 196 28 166 28 124 Z"
+    fill="url(#s-metal)"
+  />
 
-  <!-- Inner bevel line -->
-  <path d="M 38 30 L 162 30 L 162 91 C 162 133, 140 165, 100 195 C 60 165, 38 133, 38 91 Z"
-        fill="none" stroke="rgba(94,234,212,.55)" stroke-width="1.4"/>
-  <path d="M 43 35 L 157 35 L 157 90 C 157 130, 138 159, 100 188 C 62 159, 43 130, 43 90 Z"
-        fill="none" stroke="rgba(94,234,212,.25)" stroke-width="0.9"/>
+  <!-- Clipped interior -->
+  <g clip-path="url(#s-clip)">
 
-  <!-- Rivets along inside edge -->
-  <g fill="#9aa9b3" stroke="#1f3a3f" stroke-width="0.4">
-    <circle cx="48"  cy="40" r="1.7"/>
-    <circle cx="64"  cy="40" r="1.7"/>
-    <circle cx="82"  cy="40" r="1.7"/>
-    <circle cx="100" cy="40" r="1.7"/>
-    <circle cx="118" cy="40" r="1.7"/>
-    <circle cx="136" cy="40" r="1.7"/>
-    <circle cx="152" cy="40" r="1.7"/>
-    <circle cx="48"  cy="60" r="1.7"/>
-    <circle cx="48"  cy="82" r="1.7"/>
-    <circle cx="50"  cy="106" r="1.7"/>
-    <circle cx="56"  cy="130" r="1.7"/>
-    <circle cx="68"  cy="155" r="1.7"/>
-    <circle cx="84"  cy="175" r="1.7"/>
-    <circle cx="152" cy="60" r="1.7"/>
-    <circle cx="152" cy="82" r="1.7"/>
-    <circle cx="150" cy="106" r="1.7"/>
-    <circle cx="144" cy="130" r="1.7"/>
-    <circle cx="132" cy="155" r="1.7"/>
-    <circle cx="116" cy="175" r="1.7"/>
-    <circle cx="100" cy="183" r="1.7"/>
+    <!-- Core glow -->
+    <ellipse cx="110" cy="114" rx="55" ry="62" fill="url(#s-core)"/>
+
+    <!-- Central neon cross -->
+    <g filter="url(#s-neon-md)">
+      <rect x="103" y="12"  width="14" height="204" rx="2" fill="rgba(94,234,212,0.25)"/>
+      <rect x="105" y="12"  width="10" height="204" rx="1.5" fill="#bafaed"/>
+      <rect x="107" y="12"  width="6"  height="204" rx="1" fill="#5eead4"/>
+      <rect x="28"  y="87"  width="164" height="14" rx="2" fill="rgba(94,234,212,0.25)"/>
+      <rect x="28"  y="89"  width="164" height="10" rx="1.5" fill="#bafaed"/>
+      <rect x="28"  y="91"  width="164" height="6"  rx="1" fill="#5eead4"/>
+    </g>
+
+    <!-- Top-left crosses (teal) -->
+    <g fill="rgba(8,20,30,0.95)" stroke="rgba(45,212,191,0.85)" stroke-width="0.9" filter="url(#s-neon-xs)">
+      <g transform="translate(65,48)">
+        <path d="M -5,-15 L 5,-15 L 3.5,-5 L 15,-5 L 15,5 L 3.5,5 L 5,15 L -5,15 L -3.5,5 L -15,5 L -15,-5 L -3.5,-5 Z"/>
+      </g>
+      <g transform="translate(44,76)" stroke="rgba(45,212,191,0.60)" stroke-width="0.7">
+        <path d="M -4,-11 L 4,-11 L 2.5,-4 L 11,-4 L 11,4 L 2.5,4 L 4,11 L -4,11 L -2.5,4 L -11,4 L -11,-4 L -2.5,-4 Z"/>
+      </g>
+    </g>
+
+    <!-- Top-right crosses (silver/gold) -->
+    <g fill="rgba(10,22,32,0.95)" stroke="rgba(180,200,230,0.70)" stroke-width="0.9" filter="url(#s-neon-xs)">
+      <g transform="translate(155,48)">
+        <path d="M -5,-15 L 5,-15 L 3.5,-5 L 15,-5 L 15,5 L 3.5,5 L 5,15 L -5,15 L -3.5,5 L -15,5 L -15,-5 L -3.5,-5 Z"/>
+      </g>
+      <g transform="translate(174,76)" stroke="rgba(200,175,100,0.60)" stroke-width="0.7">
+        <path d="M -4,-11 L 4,-11 L 2.5,-4 L 11,-4 L 11,4 L 2.5,4 L 4,11 L -4,11 L -2.5,4 L -11,4 L -11,-4 L -2.5,-4 Z"/>
+      </g>
+    </g>
+
+    <!-- Bottom-left crosses (teal) -->
+    <g fill="rgba(8,20,30,0.95)" stroke="rgba(45,212,191,0.70)" stroke-width="0.9" filter="url(#s-neon-xs)">
+      <g transform="translate(62,120)">
+        <path d="M -5,-15 L 5,-15 L 3.5,-5 L 15,-5 L 15,5 L 3.5,5 L 5,15 L -5,15 L -3.5,5 L -15,5 L -15,-5 L -3.5,-5 Z"/>
+      </g>
+      <g transform="translate(46,158)" stroke="rgba(45,212,191,0.45)" stroke-width="0.7">
+        <path d="M -4,-11 L 4,-11 L 2.5,-4 L 11,-4 L 11,4 L 2.5,4 L 4,11 L -4,11 L -2.5,4 L -11,4 L -11,-4 L -2.5,-4 Z"/>
+      </g>
+    </g>
+
+    <!-- Bottom-right crosses (silver/gold) -->
+    <g fill="rgba(10,22,32,0.95)" stroke="rgba(180,200,230,0.60)" stroke-width="0.9" filter="url(#s-neon-xs)">
+      <g transform="translate(158,120)">
+        <path d="M -5,-15 L 5,-15 L 3.5,-5 L 15,-5 L 15,5 L 3.5,5 L 5,15 L -5,15 L -3.5,5 L -15,5 L -15,-5 L -3.5,-5 Z"/>
+      </g>
+      <g transform="translate(172,158)" stroke="rgba(200,175,100,0.55)" stroke-width="0.7">
+        <path d="M -4,-11 L 4,-11 L 2.5,-4 L 11,-4 L 11,4 L 2.5,4 L 4,11 L -4,11 L -2.5,4 L -11,4 L -11,-4 L -2.5,-4 Z"/>
+      </g>
+    </g>
+
+  </g><!-- end clip -->
+
+  <!-- Shield border — layered neon glow -->
+  <path
+    d="M 28 12 L 192 12 L 192 124 C 192 166 155 196 110 216 C 65 196 28 166 28 124 Z"
+    fill="none" stroke="rgba(94,234,212,0.20)" stroke-width="14"
+    filter="url(#s-neon-lg)"
+  />
+  <path
+    d="M 28 12 L 192 12 L 192 124 C 192 166 155 196 110 216 C 65 196 28 166 28 124 Z"
+    fill="none" stroke="rgba(94,234,212,0.60)" stroke-width="4"
+    filter="url(#s-neon-sm)"
+  />
+  <path
+    d="M 28 12 L 192 12 L 192 124 C 192 166 155 196 110 216 C 65 196 28 166 28 124 Z"
+    fill="none" stroke="rgba(186,250,237,0.95)" stroke-width="2"
+  />
+
+  <!-- Inner bevel -->
+  <path
+    d="M 36 20 L 184 20 L 184 123 C 184 160 152 187 110 205 C 68 187 36 160 36 123 Z"
+    fill="none" stroke="rgba(94,234,212,0.25)" stroke-width="1"
+  />
+
+  <!-- Rivets -->
+  <g fill="#8ab5c0" stroke="#1a3840" stroke-width="0.4">
+    <circle cx="42"  cy="24" r="2.2"/>
+    <circle cx="70"  cy="19" r="2.2"/>
+    <circle cx="110" cy="17" r="2.2"/>
+    <circle cx="150" cy="19" r="2.2"/>
+    <circle cx="178" cy="24" r="2.2"/>
+    <circle cx="34"  cy="62" r="2.0"/>
+    <circle cx="32"  cy="98" r="2.0"/>
+    <circle cx="186" cy="62" r="2.0"/>
+    <circle cx="188" cy="98" r="2.0"/>
   </g>
 
-  <!-- Soft center glow behind cross -->
-  <ellipse cx="100" cy="108" rx="46" ry="56" fill="url(#ak-core)"/>
-
-  <!-- Central neon cross -->
-  <g filter="url(#ak-neon-strong)">
-    <!-- vertical bar (outer halo) -->
-    <rect x="91"  y="44" width="18" height="138" rx="2" fill="rgba(94,234,212,.30)"/>
-    <!-- vertical bar (white core) -->
-    <rect x="94"  y="46" width="12" height="134" rx="1.5" fill="#bafaed"/>
-    <rect x="96"  y="48" width="8"  height="130" rx="1"   fill="#5eead4"/>
-    <!-- horizontal bar (outer halo) -->
-    <rect x="50"  y="93" width="100" height="18" rx="2" fill="rgba(94,234,212,.30)"/>
-    <!-- horizontal bar (core) -->
-    <rect x="52"  y="95" width="96"  height="14" rx="1.5" fill="#bafaed"/>
-    <rect x="54"  y="97" width="92"  height="10" rx="1"   fill="#5eead4"/>
+  <!-- Apex flare -->
+  <g filter="url(#s-neon-md)">
+    <circle cx="110" cy="12" r="10" fill="url(#s-apex)"/>
+    <circle cx="110" cy="12" r="4"  fill="rgba(255,255,255,0.98)"/>
   </g>
 
-  <!-- Four cross-pattée crusader crosses in quadrants -->
-  <g stroke="#5eead4" stroke-width="0.7" filter="url(#ak-neon)">
-    <g transform="translate(70, 70)" fill="#0c2226">
-      <path d="M -3,-9 L 3,-9 L 2,-3 L 9,-3 L 9,3 L 2,3 L 3,9 L -3,9 L -2,3 L -9,3 L -9,-3 L -2,-3 Z"/>
-    </g>
-    <g transform="translate(130, 70)" fill="#0c2226">
-      <path d="M -3,-9 L 3,-9 L 2,-3 L 9,-3 L 9,3 L 2,3 L 3,9 L -3,9 L -2,3 L -9,3 L -9,-3 L -2,-3 Z"/>
-    </g>
-    <g transform="translate(70, 142)" fill="#0c2226">
-      <path d="M -3,-9 L 3,-9 L 2,-3 L 9,-3 L 9,3 L 2,3 L 3,9 L -3,9 L -2,3 L -9,3 L -9,-3 L -2,-3 Z"/>
-    </g>
-    <g transform="translate(130, 142)" fill="#0c2226">
-      <path d="M -3,-9 L 3,-9 L 2,-3 L 9,-3 L 9,3 L 2,3 L 3,9 L -3,9 L -2,3 L -9,3 L -9,-3 L -2,-3 Z"/>
-    </g>
-  </g>
 </svg>

@@ -1,3 +1,4 @@
+import VentureGeomMap from "@/components/VentureGeomMap";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
@@ -73,6 +74,7 @@ const badgeClasses: Record<string, string> = {
 export default function SystemPage() {
   return (
     <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+      <VentureGeomMap />
       <section className="mx-auto max-w-5xl">
         <SiteNav />
 

@@ -1,18 +1,19 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 
-const nodes = [
+const ventures = [
   {
     id: "ai",
     label: "Arkhe AI Systems",
     type: "Technology / AI",
     status: "In Development",
     x: 50,
-    y: 18,
+    y: 16,
     body:
-      "Focused on applied AI, automation workflows, and internal operating systems. Includes research assistants, decision-support tools, and scalable automation designed to increase efficiency across all Arkhe entities.",
-    note: "Currently building internal tooling and proof-of-concept automation systems.",
+      "Applied AI, automation workflows, research assistants, decision support tools, and internal operating systems built to increase efficiency across every Arkhe entity.",
+    note: "Currently building internal tooling and proof of concept automation systems.",
   },
   {
     id: "legal",
@@ -20,31 +21,31 @@ const nodes = [
     type: "Legal Infrastructure",
     status: "Forming",
     x: 18,
-    y: 45,
+    y: 44,
     body:
-      "Builds entity structure, contracts, compliance systems, intellectual property planning, and legal architecture for Arkhe ventures.",
+      "Entity structure, contracts, governance, intellectual property planning, compliance protocols, and legal architecture for Arkhe ventures.",
     note: "Future legal services will only operate through properly licensed channels.",
   },
   {
     id: "media",
     label: "Arkhe Media",
-    type: "Media / Community",
+    type: "Media / Publishing",
     status: "Planned",
     x: 82,
-    y: 45,
+    y: 44,
     body:
-      "Publishing, education, founder notes, technical breakdowns, and public communication for Arkhe projects.",
+      "Publishing, education, founder notes, technical breakdowns, public communication, and strategic narrative for the Arkhe ecosystem.",
     note: "Launch planned after core infrastructure is established.",
   },
   {
     id: "anon",
-    label: "ANON Network",
+    label: "Arkhe ANON Network",
     type: "Privacy / Community",
     status: "Concept",
     x: 30,
     y: 76,
     body:
-      "A privacy-focused digital ecosystem around anonymous identity, secure communication, and decentralized community infrastructure.",
+      "Privacy focused digital infrastructure for anonymous identity, secure communication, and decentralized community design.",
     note: "Architecture and community model under active design.",
   },
   {
@@ -55,8 +56,8 @@ const nodes = [
     x: 70,
     y: 76,
     body:
-      "The parent framework connecting legal, technical, media, and investment systems under one disciplined structure.",
-    note: "Built for long-term control, scalability, and venture formation.",
+      "The parent framework connecting legal, technical, media, and strategic systems under one disciplined holding structure.",
+    note: "Built for long term control, scalability, and venture formation.",
   },
 ];
 
@@ -71,78 +72,107 @@ const links = [
 ];
 
 export default function VentureGeomMap() {
-  const [active, setActive] = useState(nodes[0]);
-
-  const point = (id: string) => nodes.find((n) => n.id === id)!;
+  const [active, setActive] = useState(ventures[0]);
+  const point = (id: string) => ventures.find((v) => v.id === id)!;
 
   return (
-    <section className="mx-auto mb-20 max-w-6xl px-6">
-      <div className="relative overflow-hidden rounded-[2rem] border border-teal-300/20 bg-black/40 p-6 shadow-[0_0_60px_rgba(45,255,220,0.12)]">
-        <div className="mb-6">
+    <motion.section
+      initial={{ opacity: 0, y: 40, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className="mx-auto mb-20 max-w-6xl px-6"
+    >
+      <div className="relative overflow-hidden rounded-[2rem] border border-teal-300/20 bg-black/40 p-6 shadow-[0_0_80px_rgba(45,255,220,0.16)]">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.7 }}
+          className="mb-6"
+        >
           <p className="text-sm font-semibold tracking-[0.35em] text-teal-300">
-            INTERLINKED SYSTEM MAP
+            ARKHE VENTURE MAP
           </p>
           <h2 className="mt-3 text-3xl font-bold text-white">
-            Venture Stack Interface
+            Interlinked Venture Geometry
           </h2>
           <p className="mt-3 max-w-3xl text-white/60">
-            Hover over each geometry to preview the Arkhe vertical it represents.
+            Every venture is Arkhe branded, connected to the parent structure, and designed as part of one operating system.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative h-[560px] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_center,rgba(45,255,220,0.18),transparent_45%)]">
+        <div className="relative h-[600px] overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_center,rgba(45,255,220,0.20),transparent_44%)]">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(94,234,212,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(94,234,212,.05)_1px,transparent_1px)] bg-[size:48px_48px]" />
+
           <svg className="absolute inset-0 h-full w-full">
             <defs>
-              <filter id="glow">
+              <filter id="mapGlow">
                 <feGaussianBlur stdDeviation="4" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
+
+              <linearGradient id="nodeFace" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stopColor="rgba(94,234,212,.42)" />
+                <stop offset="50%" stopColor="rgba(8,20,20,.95)" />
+                <stop offset="100%" stopColor="rgba(94,234,212,.18)" />
+              </linearGradient>
             </defs>
 
-            {links.map(([a, b]) => {
+            {links.map(([a, b], i) => {
               const p1 = point(a);
               const p2 = point(b);
               return (
-                <line
+                <motion.line
                   key={`${a}-${b}`}
                   x1={`${p1.x}%`}
                   y1={`${p1.y}%`}
                   x2={`${p2.x}%`}
                   y2={`${p2.y}%`}
-                  stroke="rgba(94,234,212,.35)"
+                  stroke="rgba(94,234,212,.38)"
                   strokeWidth="1.5"
-                  filter="url(#glow)"
+                  filter="url(#mapGlow)"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ delay: 0.45 + i * 0.08, duration: 0.9 }}
                 />
               );
             })}
 
-            {nodes.map((node) => (
-              <g
+            {ventures.map((node, i) => (
+              <motion.g
                 key={node.id}
                 onMouseEnter={() => setActive(node)}
                 className="cursor-pointer"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.25 + i * 0.12, duration: 0.55 }}
               >
                 <polygon
-                  points="
-                    -34,-20
-                    0,-39
-                    34,-20
-                    34,20
-                    0,39
-                    -34,20
-                  "
-                  transform={`translate(${node.x * 10.8}, ${node.y * 5.4})`}
-                  fill={
-                    active.id === node.id
-                      ? "rgba(94,234,212,.22)"
-                      : "rgba(10,20,20,.9)"
-                  }
-                  stroke="rgba(94,234,212,.85)"
+                  points="-44,-26 0,-50 44,-26 44,26 0,50 -44,26"
+                  transform={`translate(${node.x * 10.8}, ${node.y * 5.9})`}
+                  fill="rgba(94,234,212,.08)"
+                  stroke="rgba(94,234,212,.22)"
+                  strokeWidth="8"
+                  filter="url(#mapGlow)"
+                />
+
+                <polygon
+                  points="-36,-22 0,-42 36,-22 36,22 0,42 -36,22"
+                  transform={`translate(${node.x * 10.8}, ${node.y * 5.9})`}
+                  fill={active.id === node.id ? "url(#nodeFace)" : "rgba(8,20,20,.88)"}
+                  stroke="rgba(94,234,212,.9)"
                   strokeWidth="2"
-                  filter="url(#glow)"
+                  filter="url(#mapGlow)"
+                />
+
+                <polygon
+                  points="-22,-13 0,-26 22,-13 22,13 0,26 -22,13"
+                  transform={`translate(${node.x * 10.8}, ${node.y * 5.9})`}
+                  fill="rgba(255,255,255,.04)"
+                  stroke="rgba(255,255,255,.22)"
+                  strokeWidth="1"
                 />
 
                 <circle
@@ -150,17 +180,21 @@ export default function VentureGeomMap() {
                   cy={`${node.y}%`}
                   r={active.id === node.id ? 8 : 5}
                   fill="rgb(94,234,212)"
-                  filter="url(#glow)"
+                  filter="url(#mapGlow)"
                 />
-              </g>
+              </motion.g>
             ))}
           </svg>
 
-          <div
-            className="absolute w-[360px] rounded-3xl border border-teal-300/30 bg-black/80 p-6 shadow-[0_0_40px_rgba(45,255,220,0.25)] backdrop-blur-xl transition-all"
+          <motion.div
+            key={active.id}
+            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.25 }}
+            className="absolute w-[390px] rounded-3xl border border-teal-300/30 bg-black/80 p-6 shadow-[0_0_50px_rgba(45,255,220,0.30)] backdrop-blur-xl"
             style={{
-              left: active.x > 60 ? "8%" : active.x < 30 ? "48%" : "34%",
-              top: active.y > 55 ? "10%" : "52%",
+              left: active.x > 60 ? "7%" : active.x < 30 ? "50%" : "34%",
+              top: active.y > 55 ? "9%" : "52%",
             }}
           >
             <div className="mb-4 flex items-start justify-between gap-4">
@@ -180,9 +214,9 @@ export default function VentureGeomMap() {
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm text-white/60">
               {active.note}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

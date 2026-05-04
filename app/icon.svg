@@ -1,0 +1,24 @@
+<svg width="256" height="280" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="favm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#163034"/>
+      <stop offset="100%" stop-color="#06141700"/>
+    </linearGradient>
+    <linearGradient id="favb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0d6e66"/>
+    </linearGradient>
+  </defs>
+  <path d="M 30 22 L 170 22 L 170 92 C 170 138, 144 174, 100 206 C 56 174, 30 138, 30 92 Z"
+        fill="url(#favm)" stroke="url(#favb)" stroke-width="4"/>
+  <!-- Central cross -->
+  <rect x="93" y="46" width="14" height="134" fill="#bafaed"/>
+  <rect x="52" y="95" width="96" height="14" fill="#bafaed"/>
+  <!-- Four mini crosses -->
+  <g fill="#5eead4">
+    <rect x="64" y="60" width="12" height="3"/><rect x="68.5" y="55.5" width="3" height="12"/>
+    <rect x="124" y="60" width="12" height="3"/><rect x="128.5" y="55.5" width="3" height="12"/>
+    <rect x="64" y="138" width="12" height="3"/><rect x="68.5" y="133.5" width="3" height="12"/>
+    <rect x="124" y="138" width="12" height="3"/><rect x="128.5" y="133.5" width="3" height="12"/>
+  </g>
+</svg>

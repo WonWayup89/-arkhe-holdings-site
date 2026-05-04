@@ -10,31 +10,31 @@ const ventures = [
     type: "Technology / AI",
     status: "In Development",
     x: 50,
-    y: 17,
+    y: 18,
     body:
-      "Applied AI, automation workflows, research assistants, decision support tools, and internal operating systems built to increase efficiency across every Arkhe entity.",
-    note: "Currently building internal tooling and proof of concept automation systems.",
+      "Focused on applied AI, automation workflows, and internal operating systems. Includes research assistants, decision-support tools, and scalable automation designed to increase efficiency across all Arkhe entities.",
+    note: "Currently building internal tooling and proof-of-concept automation systems.",
   },
   {
     id: "legal",
     label: "Arkhe Legal",
     type: "Legal Infrastructure",
     status: "Forming",
-    x: 18,
-    y: 44,
+    x: 19,
+    y: 42,
     body:
-      "Entity structure, contracts, governance, intellectual property planning, compliance protocols, and legal architecture for Arkhe ventures.",
+      "Entity structure, contracts, compliance systems, intellectual property planning, and legal architecture for Arkhe ventures.",
     note: "Future legal services will only operate through properly licensed channels.",
   },
   {
     id: "media",
     label: "Arkhe Media",
-    type: "Media / Publishing",
+    type: "Media / Community",
     status: "Planned",
-    x: 82,
-    y: 44,
+    x: 81,
+    y: 42,
     body:
-      "Publishing, education, founder notes, technical breakdowns, public communication, and strategic narrative for the Arkhe ecosystem.",
+      "Publishing, education, founder notes, technical breakdowns, and public communication for the Arkhe ecosystem.",
     note: "Launch planned after core infrastructure is established.",
   },
   {
@@ -42,10 +42,10 @@ const ventures = [
     label: "Arkhe ANON Network",
     type: "Privacy / Community",
     status: "Concept",
-    x: 30,
-    y: 77,
+    x: 31,
+    y: 76,
     body:
-      "Privacy focused digital infrastructure for anonymous identity, secure communication, and decentralized community design.",
+      "Privacy-focused digital infrastructure for anonymous identity, secure communication, and decentralized community design.",
     note: "Architecture and community model under active design.",
   },
   {
@@ -53,11 +53,11 @@ const ventures = [
     label: "Arkhe Holdings",
     type: "Parent Structure",
     status: "Core",
-    x: 70,
-    y: 77,
+    x: 69,
+    y: 76,
     body:
       "The parent framework connecting legal, technical, media, and strategic systems under one disciplined holding structure.",
-    note: "Built for long term control, scalability, and venture formation.",
+    note: "Built for long-term control, scalability, and venture formation.",
   },
 ];
 
@@ -71,102 +71,56 @@ const links = [
   ["ai", "holdings"],
 ];
 
-function WireGeom({
-  node,
+function GeoOrb({
+  x,
+  y,
   active,
-  index,
-  setActive,
+  onEnter,
 }: {
-  node: (typeof ventures)[number];
-  active: (typeof ventures)[number];
-  index: number;
-  setActive: (node: (typeof ventures)[number]) => void;
+  x: number;
+  y: number;
+  active: boolean;
+  onEnter: () => void;
 }) {
-  const cx = node.x * 10.8;
-  const cy = node.y * 5.8;
-  const isActive = active.id === node.id;
-
   return (
     <motion.g
-      onMouseEnter={() => setActive(node)}
+      onMouseEnter={onEnter}
       className="cursor-pointer"
-      initial={{ opacity: 0, scale: 0.45, rotate: -18 }}
-      animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      transition={{ delay: 0.25 + index * 0.12, duration: 0.8, ease: "easeOut" }}
+      initial={{ opacity: 0, scale: 0.65 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      transform={`translate(${x * 10.8}, ${y * 5.8})`}
     >
       <motion.g
-        animate={{ rotate: isActive ? 360 : 0 }}
-        transition={{ duration: isActive ? 18 : 0, repeat: Infinity, ease: "linear" }}
-        style={{ transformOrigin: `${cx}px ${cy}px` }}
+        animate={{ rotate: active ? 360 : 0 }}
+        transition={{ duration: active ? 18 : 40, repeat: Infinity, ease: "linear" }}
       >
-        <circle
-          cx={cx}
-          cy={cy}
-          r={isActive ? 78 : 64}
-          fill="rgba(94,234,212,.035)"
-          stroke="rgba(94,234,212,.55)"
-          strokeWidth="1.4"
-          filter="url(#mapGlow)"
-        />
+        <circle r="74" fill="rgba(94,234,212,.035)" stroke="rgba(94,234,212,.30)" strokeWidth="1" />
+        <circle r="52" fill="none" stroke="rgba(94,234,212,.28)" strokeWidth="1" />
+        <circle r="30" fill="none" stroke="rgba(94,234,212,.18)" strokeWidth="1" />
 
-        <ellipse
-          cx={cx}
-          cy={cy}
-          rx={isActive ? 76 : 62}
-          ry={isActive ? 27 : 22}
-          fill="none"
-          stroke="rgba(94,234,212,.46)"
-          strokeWidth="1"
-        />
+        <polygon points="-56,-32 0,-64 56,-32 56,32 0,64 -56,32" fill="none" stroke="rgba(94,234,212,.72)" strokeWidth="1.5" />
+        <polygon points="-38,-22 0,-44 38,-22 38,22 0,44 -38,22" fill="none" stroke="rgba(94,234,212,.42)" strokeWidth="1" />
+        <polygon points="-20,-12 0,-24 20,-12 20,12 0,24 -20,12" fill="none" stroke="rgba(255,255,255,.22)" strokeWidth="1" />
 
-        <ellipse
-          cx={cx}
-          cy={cy}
-          rx={isActive ? 27 : 22}
-          ry={isActive ? 76 : 62}
-          fill="none"
-          stroke="rgba(94,234,212,.38)"
-          strokeWidth="1"
-        />
-
-        <polygon
-          points={`${cx},${cy - 70} ${cx + 60},${cy - 35} ${cx + 60},${cy + 35} ${cx},${cy + 70} ${cx - 60},${cy + 35} ${cx - 60},${cy - 35}`}
-          fill={isActive ? "rgba(94,234,212,.11)" : "rgba(8,20,20,.32)"}
-          stroke="rgba(94,234,212,.8)"
-          strokeWidth="1.8"
-          filter="url(#mapGlow)"
-        />
-
-        <polygon
-          points={`${cx},${cy - 48} ${cx + 42},${cy - 24} ${cx + 42},${cy + 24} ${cx},${cy + 48} ${cx - 42},${cy + 24} ${cx - 42},${cy - 24}`}
-          fill="none"
-          stroke="rgba(255,255,255,.22)"
-          strokeWidth="1"
-        />
-
-        <line x1={cx - 60} y1={cy - 35} x2={cx + 60} y2={cy + 35} stroke="rgba(94,234,212,.28)" />
-        <line x1={cx + 60} y1={cy - 35} x2={cx - 60} y2={cy + 35} stroke="rgba(94,234,212,.28)" />
-        <line x1={cx} y1={cy - 70} x2={cx} y2={cy + 70} stroke="rgba(94,234,212,.25)" />
+        <line x1="-56" y1="-32" x2="56" y2="32" stroke="rgba(94,234,212,.24)" />
+        <line x1="56" y1="-32" x2="-56" y2="32" stroke="rgba(94,234,212,.24)" />
+        <line x1="0" y1="-64" x2="0" y2="64" stroke="rgba(94,234,212,.22)" />
+        <line x1="-56" y1="32" x2="56" y2="-32" stroke="rgba(255,255,255,.10)" />
+        <line x1="-38" y1="-22" x2="38" y2="22" stroke="rgba(255,255,255,.10)" />
       </motion.g>
 
-      <circle
-        cx={cx}
-        cy={cy}
-        r={isActive ? 8 : 5}
-        fill="rgb(94,234,212)"
-        filter="url(#mapGlow)"
-      />
+      <circle r={active ? 8 : 5} fill="rgb(180,255,245)" filter="url(#mapGlow)" />
+      <circle cx="-56" cy="-32" r="2.4" fill="rgb(180,255,245)" />
+      <circle cx="0" cy="-64" r="2.4" fill="rgb(180,255,245)" />
+      <circle cx="56" cy="-32" r="2.4" fill="rgb(180,255,245)" />
+      <circle cx="56" cy="32" r="2.4" fill="rgb(180,255,245)" />
+      <circle cx="0" cy="64" r="2.4" fill="rgb(180,255,245)" />
+      <circle cx="-56" cy="32" r="2.4" fill="rgb(180,255,245)" />
 
-      <text
-        x={cx}
-        y={cy + 100}
-        textAnchor="middle"
-        fill="rgba(255,255,255,.78)"
-        fontSize="14"
-        fontWeight="700"
-      >
-        {node.label.replace("Arkhe ", "")}
-      </text>
+      {active && (
+        <circle r="86" fill="none" stroke="rgba(94,234,212,.42)" strokeWidth="1" filter="url(#mapGlow)" />
+      )}
     </motion.g>
   );
 }
@@ -177,28 +131,27 @@ export default function VentureGeomMap() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40, scale: 0.97 }}
+      initial={{ opacity: 0, y: 45, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, ease: "easeOut" }}
-      className="mx-auto mb-20 max-w-6xl px-6"
+      className="mx-auto mb-24 max-w-7xl px-6"
     >
-      <div className="relative overflow-hidden rounded-[2rem] border border-teal-300/20 bg-black/40 p-6 shadow-[0_0_80px_rgba(45,255,220,0.16)]">
+      <div className="relative overflow-hidden rounded-[2.25rem] border border-teal-300/20 bg-black/50 p-6 shadow-[0_0_90px_rgba(45,255,220,0.16)]">
         <div className="mb-6">
           <p className="text-sm font-semibold tracking-[0.35em] text-teal-300">
-            ARKHE VENTURE MAP
+            INTERLINKED SYSTEM MAP
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-white">
-            Interlinked Venture Geometry
-          </h2>
+          <h2 className="mt-3 text-4xl font-bold text-white">Venture Stack Interface</h2>
           <p className="mt-3 max-w-3xl text-white/60">
-            Every venture is Arkhe branded, connected to the parent structure, and designed as part of one operating system.
+            Hover over each geometry to preview the Arkhe vertical it represents.
           </p>
         </div>
 
-        <div className="relative h-[650px] overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_center,rgba(45,255,220,0.22),transparent_46%)]">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(94,234,212,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(94,234,212,.05)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="relative h-[650px] overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(45,255,220,0.22),transparent_43%)]">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(94,234,212,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(94,234,212,.05)_1px,transparent_1px)] bg-[size:52px_52px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,.70)_78%)]" />
 
-          <svg className="absolute inset-0 h-full w-full">
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1080 650" preserveAspectRatio="none">
             <defs>
               <filter id="mapGlow">
                 <feGaussianBlur stdDeviation="4" result="blur" />
@@ -219,44 +172,38 @@ export default function VentureGeomMap() {
                   y1={`${p1.y}%`}
                   x2={`${p2.x}%`}
                   y2={`${p2.y}%`}
-                  stroke="rgba(94,234,212,.36)"
-                  strokeWidth="1.4"
+                  stroke="rgba(94,234,212,.34)"
+                  strokeWidth="1.6"
                   filter="url(#mapGlow)"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ delay: 0.45 + i * 0.08, duration: 0.9 }}
+                  transition={{ delay: 0.35 + i * 0.09, duration: 1.1 }}
                 />
               );
             })}
 
-            {ventures.map((node, i) => (
-              <WireGeom
+            {ventures.map((node) => (
+              <GeoOrb
                 key={node.id}
-                node={node}
-                index={i}
-                active={active}
-                setActive={setActive}
+                x={node.x}
+                y={node.y}
+                active={active.id === node.id}
+                onEnter={() => setActive(node)}
               />
             ))}
           </svg>
 
           <motion.div
             key={active.id}
-            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.25 }}
-            className="absolute w-[390px] rounded-3xl border border-teal-300/30 bg-black/80 p-6 shadow-[0_0_50px_rgba(45,255,220,0.30)] backdrop-blur-xl"
-            style={{
-              left: active.x > 60 ? "7%" : active.x < 30 ? "50%" : "34%",
-              top: active.y > 55 ? "9%" : "52%",
-            }}
+            className="absolute left-1/2 top-1/2 z-10 w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-teal-300/30 bg-black/75 p-6 shadow-[0_0_55px_rgba(45,255,220,0.34)] backdrop-blur-xl"
           >
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-2xl font-bold text-white">{active.label}</h3>
-                <p className="mt-1 text-sm font-semibold text-teal-300">
-                  {active.type}
-                </p>
+                <p className="mt-1 text-sm font-semibold text-teal-300">{active.type}</p>
               </div>
               <span className="rounded-full border border-teal-300/50 px-3 py-1 text-xs font-semibold text-teal-300">
                 {active.status}

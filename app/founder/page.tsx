@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Brian Salsbury — Founder",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function FounderPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-5xl">
         <SiteNav />
 
@@ -68,6 +69,9 @@ export default function FounderPage() {
         </a>
 
       </section>
+      <div className="mx-auto max-w-5xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

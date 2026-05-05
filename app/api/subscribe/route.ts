@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "Arkhe Holdings <onboarding@resend.dev>",
-      to: process.env.ARKEH_LEADS_EMAIL || "brian.salsbury@arkheholdings.net",
+      to: process.env.ARKHE_LEADS_EMAIL || "brian.salsbury@arkheholdings.net",
       subject: "New Arkhe Holdings subscriber",
       text: `New subscriber: ${email}`,
     });

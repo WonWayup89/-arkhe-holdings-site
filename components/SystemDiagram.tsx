@@ -1,12 +1,17 @@
-export default function SystemDiagram() {
-  const nodes = [
-    { label: "Legal", pos: "left-[8%] top-[42%]" },
-    { label: "AI Systems", pos: "left-[27%] top-[18%]" },
-    { label: "Media", pos: "right-[27%] top-[18%]" },
-    { label: "Holdings", pos: "right-[8%] top-[42%]" },
-    { label: "Strategy", pos: "left-1/2 bottom-[8%] -translate-x-1/2" },
-  ];
+import Link from "next/link";
+import { verticals } from "@/lib/verticals";
 
+// Position the five vertical nodes around the central "Parent" hub.
+// Order matches lib/verticals.ts: legal, technology, media, holdings, strategy.
+const NODE_POSITIONS = [
+  "left-[8%] top-[42%]",                  // legal
+  "left-[27%] top-[18%]",                 // technology
+  "right-[27%] top-[18%]",                // media
+  "right-[8%] top-[42%]",                 // holdings
+  "left-1/2 bottom-[8%] -translate-x-1/2", // strategy
+] as const;
+
+export default function SystemDiagram() {
   return (
     <section className="my-20 overflow-hidden rounded-[2rem] border border-teal-300/20 bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.18),transparent_45%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-8 shadow-[0_0_80px_rgba(45,212,191,0.12)]">
       <div className="mb-10 text-center">
@@ -51,13 +56,16 @@ export default function SystemDiagram() {
           </div>
         </div>
 
-        {nodes.map((node) => (
-          <div
-            key={node.label}
-            className={`absolute ${node.pos} z-10 rounded-2xl border border-teal-300/30 bg-black/60 px-5 py-4 text-center shadow-[0_0_35px_rgba(45,212,191,0.16)] backdrop-blur`}
+        {verticals.map((node, i) => (
+          <Link
+            key={node.id}
+            href={node.href}
+            className={`absolute ${NODE_POSITIONS[i]} z-10 rounded-2xl border border-teal-300/30 bg-black/60 px-5 py-4 text-center shadow-[0_0_35px_rgba(45,212,191,0.16)] backdrop-blur transition hover:border-teal-300/70 hover:bg-black/80 hover:shadow-[0_0_55px_rgba(45,212,191,0.32)]`}
           >
-            <p className="text-sm font-semibold text-white">{node.label}</p>
-          </div>
+            <p className="text-sm font-semibold text-white">
+              {node.shortTitle ?? node.title}
+            </p>
+          </Link>
         ))}
       </div>
     </section>

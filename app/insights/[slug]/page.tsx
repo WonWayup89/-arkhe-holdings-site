@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import { posts, getPostBySlug } from "@/lib/posts";
 
 export async function generateStaticParams() {
@@ -41,7 +42,7 @@ export default async function PostPage({
   const paragraphs = post.content.split("\n\n").filter(Boolean);
 
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-5xl">
         <SiteNav />
 
@@ -84,6 +85,9 @@ export default async function PostPage({
           </Link>
         </div>
       </article>
+      <div className="mx-auto max-w-5xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

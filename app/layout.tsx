@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import AmbientNetwork from "@/components/AmbientNetwork";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -37,10 +47,6 @@ export const metadata: Metadata = {
       "Strategic architecture for ventures across law, technology, media, and investments.",
     images: ["/og-image.png"],
   },
-
-  icons: {
-    icon: "/icon.svg",
-  },
 };
 
 export default function RootLayout({
@@ -71,8 +77,12 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-[#04070a] text-white">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body className="bg-[#04070a] font-sans text-white antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

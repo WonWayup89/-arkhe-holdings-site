@@ -1,8 +1,9 @@
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function StrategyPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -23,11 +24,11 @@ export default function StrategyPage() {
 
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-white/75">
           <p>
-            Most consulting relationships fail for the same reason: the advice is disconnected from execution. A strategy that cannot be implemented is not a strategy — it is a document. Arkhe's Consulting and Strategy vertical is built to bridge that gap, bringing together legal awareness, technical capability, and operational discipline into engagements that produce real structural change.
+            Most consulting relationships fail for the same reason: the advice is disconnected from execution. A strategy that cannot be implemented is not a strategy — it is a document. Arkhe&rsquo;s Consulting and Strategy vertical is built to bridge that gap, bringing together legal awareness, technical capability, and operational discipline into engagements that produce real structural change.
           </p>
 
           <p>
-            Brian Salsbury's background spans law school, academic advising, self-taught software development, and the construction of a multi-vertical holding company from the ground up. That combination produces a perspective that is rare in traditional consulting: someone who understands both the legal architecture that governs a business and the technical systems that operate it, and who has actually built those things rather than advised on them theoretically.
+            Brian Salsbury&rsquo;s background spans law school, academic advising, self-taught software development, and the construction of a multi-vertical holding company from the ground up. That combination produces a perspective that is rare in traditional consulting: someone who understands both the legal architecture that governs a business and the technical systems that operate it, and who has actually built those things rather than advised on them theoretically.
           </p>
 
           <p>
@@ -62,13 +63,16 @@ export default function StrategyPage() {
 
         <div className="mt-6">
           <a
-            href="/verticals"
+            href="/system"
             className="inline-block text-sm text-white/50 hover:text-teal-300 transition-colors"
           >
             ← All Verticals
           </a>
         </div>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

@@ -1,8 +1,9 @@
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function HoldingsPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -35,7 +36,7 @@ export default function HoldingsPage() {
           </p>
 
           <p>
-            As the holding structure matures, this vertical will expand to include minority and majority equity positions in external operating companies — particularly those that align with Arkhe's existing domain expertise in law, technology, and media. The evaluation criteria will remain consistent: durable business model, aligned founder values, and strategic fit within the broader portfolio.
+            As the holding structure matures, this vertical will expand to include minority and majority equity positions in external operating companies — particularly those that align with Arkhe&rsquo;s existing domain expertise in law, technology, and media. The evaluation criteria will remain consistent: durable business model, aligned founder values, and strategic fit within the broader portfolio.
           </p>
 
           <p className="text-white">
@@ -54,12 +55,15 @@ export default function HoldingsPage() {
         </div>
 
         <a
-          href="/verticals"
+          href="/system"
           className="mt-12 inline-block text-sm text-white/50 hover:text-teal-300 transition-colors"
         >
           ← All Verticals
         </a>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

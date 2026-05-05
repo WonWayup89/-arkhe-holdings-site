@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -16,11 +17,18 @@ export default function ContactPage() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    const payload = {
+      name: String(data.get("name") || ""),
+      email: String(data.get("email") || ""),
+      subject: String(data.get("subject") || ""),
+      message: String(data.get("message") || ""),
+    };
+
     try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
@@ -39,7 +47,7 @@ export default function ContactPage() {
   const labelClass = "block text-sm text-white/60 mb-1";
 
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -149,6 +157,9 @@ export default function ContactPage() {
           </a>
         </div>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

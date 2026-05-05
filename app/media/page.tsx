@@ -1,8 +1,9 @@
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function MediaPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -27,11 +28,11 @@ export default function MediaPage() {
           </p>
 
           <p>
-            Arkhe's approach to media is structural rather than reactive. The goal is not to produce content for its own sake, but to build platforms and communities around specific domains where Arkhe already operates — law, technology, entrepreneurship, and long-term thinking. Each media property is designed to have an independent identity and value proposition while feeding back into the broader Arkhe ecosystem.
+            Arkhe&rsquo;s approach to media is structural rather than reactive. The goal is not to produce content for its own sake, but to build platforms and communities around specific domains where Arkhe already operates — law, technology, entrepreneurship, and long-term thinking. Each media property is designed to have an independent identity and value proposition while feeding back into the broader Arkhe ecosystem.
           </p>
 
           <p>
-            This vertical also includes educational content development. Brian Salsbury's background as an Academic Advisor at Crestpoint University provides direct insight into how people learn, where educational systems fall short, and what independent learners actually need. That perspective informs how Arkhe designs content experiences — practical, structured, and built around outcomes rather than engagement metrics.
+            This vertical also includes educational content development. Brian Salsbury&rsquo;s background as an Academic Advisor at Crestpoint University provides direct insight into how people learn, where educational systems fall short, and what independent learners actually need. That perspective informs how Arkhe designs content experiences — practical, structured, and built around outcomes rather than engagement metrics.
           </p>
 
           <p>
@@ -54,12 +55,15 @@ export default function MediaPage() {
         </div>
 
         <a
-          href="/verticals"
+          href="/system"
           className="mt-12 inline-block text-sm text-white/50 hover:text-teal-300 transition-colors"
         >
           ← All Verticals
         </a>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

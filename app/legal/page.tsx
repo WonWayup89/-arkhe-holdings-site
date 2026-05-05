@@ -1,8 +1,9 @@
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function LegalPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -54,12 +55,15 @@ export default function LegalPage() {
         </div>
 
         <a
-          href="/verticals"
+          href="/system"
           className="mt-12 inline-block text-sm text-white/50 hover:text-teal-300 transition-colors"
         >
           ← All Verticals
         </a>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

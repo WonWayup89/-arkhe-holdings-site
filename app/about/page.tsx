@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
         <SiteNav />
 
@@ -45,8 +46,8 @@ export default function AboutPage() {
           <p className="text-sm uppercase tracking-[0.35em] text-teal-300">Why Arkhe</p>
           <h2 className="mt-3 text-2xl font-bold">The Name Means Something</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Arkhe (ἀρχή) is an ancient Greek term meaning "origin," "beginning," or "first
-            principle." The pre-Socratic philosophers used it to describe the fundamental substance
+            Arkhe (ἀρχή) is an ancient Greek term meaning &ldquo;origin,&rdquo; &ldquo;beginning,&rdquo; or &ldquo;first
+            principle.&rdquo; The pre-Socratic philosophers used it to describe the fundamental substance
             from which everything else is derived — the irreducible thing that makes all other
             things possible. That is exactly what a holding company should be: not the product, not
             the service, not the brand — but the foundation everything else is built on.
@@ -91,6 +92,9 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

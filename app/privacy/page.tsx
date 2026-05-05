@@ -1,8 +1,16 @@
+import Link from "next/link";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
+
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-20 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-4xl">
-        <a href="/" className="text-sm text-teal-300">← Back to Home</a>
+        <SiteNav />
+
+        <Link href="/" className="text-sm text-teal-300 transition-colors hover:text-teal-200">
+          ← Back to Home
+        </Link>
 
         <h1 className="mt-10 text-5xl font-bold">Privacy Policy</h1>
 
@@ -18,6 +26,9 @@ export default function PrivacyPage() {
           and how it is used.
         </p>
       </section>
+      <div className="mx-auto max-w-4xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

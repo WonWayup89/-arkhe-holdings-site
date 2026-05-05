@@ -1,9 +1,13 @@
 import Link from "next/link";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function TechnologyPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24 text-white">
-      <p className="mb-3 text-sm font-semibold tracking-[0.35em] text-teal-300">
+    <main className="mx-auto max-w-5xl px-6 py-8 text-white">
+      <SiteNav />
+
+      <p className="mt-6 mb-3 text-sm font-semibold tracking-[0.35em] text-teal-300">
         VERTICAL
       </p>
 
@@ -82,10 +86,12 @@ export default function TechnologyPage() {
       </section>
 
       <div className="mt-12">
-        <Link href="/verticals" className="text-white/60 hover:text-teal-300">
+        <Link href="/system" className="text-white/60 hover:text-teal-300">
           ← All Verticals
         </Link>
       </div>
+
+      <SiteFooter />
     </main>
   );
 }

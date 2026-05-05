@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function InsightsPage() {
   return (
-    <main className="min-h-screen bg-[#05070a] px-6 py-8 text-white">
+    <main className="min-h-screen px-6 py-8 text-white">
       <section className="mx-auto max-w-5xl">
         <SiteNav />
 
@@ -57,6 +58,9 @@ export default function InsightsPage() {
           ))}
         </div>
       </section>
+      <div className="mx-auto max-w-5xl px-6">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

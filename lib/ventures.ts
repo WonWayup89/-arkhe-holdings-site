@@ -57,14 +57,14 @@ export const ventures: Venture[] = [
   },
   {
     id: "capital",
-    name: "Arkhe Capital",
-    vertical: "Investments & Holdings",
-    stage: "Forming",
-    stageColor: "yellow",
+    name: "Arkhe Market",
+    vertical: "Arkhe Market",
+    stage: "In Development",
+    stageColor: "teal",
     description:
-      "Long-term ownership of digital assets, intellectual property, domains, and operating companies. Provides the financial architecture for the broader Arkhe system.",
+      "AI-driven market intelligence platform merging real-time data, swarm-based AI analysis, institutional-grade risk systems, and integrated financial education into a unified trading and research environment.",
     detail:
-      "Entity structure and asset acquisition strategy in formation.",
+      "Platform architecture and multi-agent analysis layer in active development.",
     href: "/holdings",
     pos: { x: 50, y: 50 },
     size: 1.2,

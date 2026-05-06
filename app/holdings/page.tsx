@@ -12,45 +12,46 @@ export default function HoldingsPage() {
         </p>
 
         <div className="mt-4 flex flex-wrap items-center gap-4">
-          <h1 className="text-5xl font-bold">Investments &amp; Holdings</h1>
+          <h1 className="text-5xl font-bold">Arkhe Market</h1>
           <span className="rounded-full border border-teal-300/40 bg-teal-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-300">
-            Active
+            In Development
           </span>
         </div>
 
         <p className="mt-4 text-xl text-white/70">
-          Long-term ownership of assets, intellectual property, and operating companies under one disciplined structure.
+          An AI-driven market intelligence platform merging real-time data, swarm-based analysis, institutional-grade risk systems, and integrated financial education into a unified trading and research environment.
         </p>
 
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-white/75">
           <p>
-            Arkhe Holdings exists because of a fundamental belief: ownership compounds, and renting does not. Every venture, every tool, every platform, and every relationship built inside the Arkhe structure is designed to generate lasting equity — not short-term returns that evaporate when market conditions shift.
+            Arkhe Market is being designed as both an advanced market operating system and an educational intelligence framework — a platform capable of helping users understand not only what markets are doing, but why they are behaving that way.
           </p>
 
           <p>
-            The Investments and Holdings vertical is the backbone of that philosophy. It is the mechanism through which Arkhe accumulates and protects the assets that all other verticals generate. Intellectual property, domain portfolios, software products, operating agreements, and equity positions in future ventures all flow through this vertical and are held with long-term intent.
+            The platform combines multi-agent AI systems, macroeconomic analysis, liquidity modeling, and educational infrastructure into a scalable environment built for traders, researchers, investors, and future autonomous financial systems. Rather than presenting markets as a black box of tickers and price action, Arkhe Market is being engineered to expose the underlying structure: capital flows, regime changes, risk concentration, and the institutional logic that drives them.
           </p>
 
           <p>
-            Capital allocation within Arkhe is governed by a simple framework: durability over velocity. An asset is worth acquiring if it will be more valuable in five to ten years than it is today, and if it can be protected within a proper legal and structural wrapper. Speculative positions, trend-driven investments, and assets without defensible moats do not meet that standard.
+            Where most retail tools optimize for speed and surface-level signals, Arkhe Market optimizes for understanding. Real-time data feeds are paired with swarm-based AI analysis so that any signal can be interrogated, contextualized, and explained. Institutional-grade risk systems sit underneath the interface to enforce discipline. Integrated education turns every interaction into an opportunity to build durable market literacy.
           </p>
 
           <p>
-            As the holding structure matures, this vertical will expand to include minority and majority equity positions in external operating companies — particularly those that align with Arkhe&rsquo;s existing domain expertise in law, technology, and media. The evaluation criteria will remain consistent: durable business model, aligned founder values, and strategic fit within the broader portfolio.
+            Arkhe Market is the first externally facing platform built inside the Arkhe Holdings system. It exists to embody the broader thesis: that the future belongs to those who can understand systems deeply, adapt quickly, learn continuously, and integrate technology responsibly. Its purpose is not to predict markets — it is to help people think more clearly about them.
           </p>
 
           <p className="text-white">
-            Every asset held here represents a decision to build rather than borrow, own rather than access, and compound rather than consume.
+            The goal is not simply to ship software. It is to build infrastructure capable of helping people act more intelligently and operate more independently in a rapidly evolving financial environment.
           </p>
         </div>
 
         <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6">
-          <p className="text-sm uppercase tracking-widest text-teal-300">Current Focus</p>
+          <p className="text-sm uppercase tracking-widest text-teal-300">Platform Pillars</p>
           <ul className="mt-4 space-y-2 text-white/65">
-            <li>— Intellectual property portfolio development and registration</li>
-            <li>— Domain and digital asset acquisition</li>
-            <li>— Internal venture equity structuring</li>
-            <li>— Criteria development for future external investment positions</li>
+            <li>— Real-time market data and liquidity modeling</li>
+            <li>— Swarm-based, multi-agent AI analysis</li>
+            <li>— Institutional-grade risk and decision systems</li>
+            <li>— Integrated financial education and research tooling</li>
+            <li>— Macroeconomic context layered onto every signal</li>
           </ul>
         </div>
 

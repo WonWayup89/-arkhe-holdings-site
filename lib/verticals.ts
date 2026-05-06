@@ -43,11 +43,11 @@ export const verticals: Vertical[] = [
   },
   {
     id: "holdings",
-    title: "Investments & Holdings",
-    shortTitle: "Holdings",
+    title: "Arkhe Market",
+    shortTitle: "Market",
     href: "/holdings",
     blurb:
-      "Long term ownership of assets, intellectual property, domains, and operating companies.",
+      "AI-driven market intelligence platform merging real-time data, multi-agent analysis, and integrated financial education.",
   },
   {
     id: "strategy",

@@ -23,7 +23,7 @@ export default function AboutPage() {
           <p className="mt-4 text-lg leading-relaxed text-white/70">
             Arkhe Holdings is a holding company built to structure, protect, and scale disciplined
             ventures across five verticals: Legal, Technology &amp; AI, Media &amp; Community,
-            Investments &amp; Holdings, and Consulting &amp; Strategy. It is not a startup. It is
+            Arkhe Market, and Consulting &amp; Strategy. It is not a startup. It is
             not a personal brand. It is infrastructure — the legal and operational shell that houses
             serious work and keeps each venture accountable to its own lane.
           </p>

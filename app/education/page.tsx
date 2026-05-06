@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import EducationAccordion from "@/components/EducationAccordion";
+import EducationConstellation from "@/components/EducationConstellation";
 import { getCategories, getStats } from "@/lib/education";
 
 export const metadata: Metadata = {
@@ -73,6 +74,9 @@ export default function EducationPage() {
             </div>
           </div>
         </section>
+
+        {/* ---------- Knowledge graph constellation ------------------------- */}
+        <EducationConstellation />
 
         {/* ---------- Three pillars ----------------------------------------- */}
         <section className="mt-16">

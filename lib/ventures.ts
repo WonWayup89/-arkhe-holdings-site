@@ -1,5 +1,5 @@
 // Canonical venture entities. Distinct from lib/verticals.ts, which holds the
-// FIVE VERTICAL CATEGORIES (legal, technology, media, holdings, strategy).
+// FIVE VERTICAL CATEGORIES (legal, technology, education, holdings, strategy).
 // This file holds the FIVE NAMED VENTURES that live inside those verticals.
 // Both /system page and components/VentureGeomMap.tsx read from here.
 
@@ -78,20 +78,20 @@ export const ventures: Venture[] = [
     description:
       "A privacy-focused digital ecosystem built around anonymous identity and decentralized interaction. Designed to support secure communication, community infrastructure, and long-term ecosystem development.",
     detail: "Architecture and community model under active design.",
-    href: "/media",
+    href: "/system",
     pos: { x: 20, y: 78 },
   },
   {
-    id: "media",
-    name: "Arkhe Media",
-    vertical: "Media / Publishing",
-    stage: "Planned",
-    stageColor: "slate",
+    id: "education",
+    name: "Arkhe Education",
+    vertical: "Education",
+    stage: "In Development",
+    stageColor: "teal",
     description:
-      "A centralized platform for publishing, education, and documentation. Houses written work, technical breakdowns, founder notes, and ongoing development insights across all ventures.",
+      "The institutional knowledge layer of the Arkhe ecosystem. A structured, navigable library covering macro, markets, crypto, risk, strategy, and the Arkhe systems that connect them — built the way an institutional research desk would build it.",
     detail:
-      "Launch planned after core technology infrastructure is established.",
-    href: "/insights",
+      "Library is live; the intersecting knowledge map and constellation interface are in active development.",
+    href: "/education",
     pos: { x: 80, y: 78 },
   },
 ];
@@ -103,11 +103,11 @@ export const ventureLinks: Array<[string, string]> = [
   ["legal", "capital"],
   ["ai", "capital"],
   ["anon", "capital"],
-  ["media", "capital"],
+  ["education", "capital"],
   ["legal", "ai"],
-  ["anon", "media"],
+  ["anon", "education"],
   ["legal", "anon"],
-  ["ai", "media"],
+  ["ai", "education"],
 ];
 
 export function getVenture(id: string): Venture | undefined {

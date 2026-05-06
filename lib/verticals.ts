@@ -34,12 +34,12 @@ export const verticals: Vertical[] = [
       "AI systems, automation tools, internal platforms, and applied software ventures.",
   },
   {
-    id: "media",
-    title: "Media & Community",
-    shortTitle: "Media",
-    href: "/media",
+    id: "education",
+    title: "Education",
+    shortTitle: "Education",
+    href: "/education",
     blurb:
-      "Digital communities, content ecosystems, and audience driven platforms.",
+      "An institutional knowledge layer covering macro, markets, crypto, risk, and the Arkhe systems that connect them.",
   },
   {
     id: "holdings",

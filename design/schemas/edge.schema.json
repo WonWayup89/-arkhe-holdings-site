@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arkeh-holdings.com/schemas/atlas/edge.schema.json",
+  "title": "AtlasEdge",
+  "description": "A single edge in the Arkhe Intersecting Knowledge Map. Edges are stored once; the renderer treats them as bidirectional unless bidirectional == false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "edge_id",
+    "source_node",
+    "destination_node",
+    "source_file_path",
+    "destination_file_path",
+    "relationship_type",
+    "relationship_weight",
+    "confidence_score",
+    "generated_by",
+    "doctrine_relevance",
+    "macro_relevance",
+    "hop_class",
+    "last_built"
+  ],
+  "properties": {
+    "edge_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+__[a-z0-9_]+--[a-z0-9_]+__[a-z0-9_]+$",
+      "description": "Deterministic id of the form <source_node>--<destination_node>."
+    },
+    "source_node": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+__[a-z0-9_]+$"
+    },
+    "destination_node": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+__[a-z0-9_]+$"
+    },
+    "source_file_path": {
+      "type": "string",
+      "pattern": "^content/education/[^\\s]+\\.md$"
+    },
+    "destination_file_path": {
+      "type": "string",
+      "pattern": "^content/education/[^\\s]+\\.md$"
+    },
+    "relationship_type": {
+      "type": "string",
+      "enum": [
+        "core",
+        "supporting",
+        "risk",
+        "macro",
+        "liquidity",
+        "execution",
+        "historical_analogue",
+        "doctrine",
+        "agent_routing",
+        "scenario"
+      ],
+      "description": "Exactly one type per edge. Precedence on detector tie defined in §3.1 of the design doc."
+    },
+    "relationship_weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Sigmoid-normalized fused score across all detectors."
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fraction of detectors that contributed to this edge. Drives line dash style."
+    },
+    "generated_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "explicit_link",
+          "shared_tags",
+          "category_sibling",
+          "keyword_overlap",
+          "semantic_similarity",
+          "agent_overlap",
+          "regime_overlap",
+          "doctrine_anchor",
+          "override_pin"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "doctrine_relevance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "macro_relevance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "hop_class": {
+      "type": "string",
+      "enum": ["direct", "secondary", "tertiary"]
+    },
+    "bidirectional": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_built": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional human note. Populated when an edge is pinned or vetoed in _overrides.yaml."
+    }
+  }
+}

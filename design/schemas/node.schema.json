@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arkeh-holdings.com/schemas/atlas/node.schema.json",
+  "title": "AtlasNode",
+  "description": "A single node in the Arkhe Intersecting Knowledge Map. One node corresponds to exactly one .md file under content/education/.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "node_id",
+    "title",
+    "category",
+    "file_path",
+    "tags",
+    "summary",
+    "doctrine_level"
+  ],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+__[a-z0-9_]+$",
+      "description": "Stable identifier <category>__<slug>. Aliases live in cache/aliases.json."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable title from the file's first H1."
+    },
+    "category": {
+      "type": "string",
+      "description": "Top-level folder name under content/education/."
+    },
+    "subcategory": {
+      "type": ["string", "null"],
+      "description": "Reserved for future nesting; null at v0.1."
+    },
+    "file_path": {
+      "type": "string",
+      "pattern": "^content/education/[^\\s]+\\.md$",
+      "description": "Repo-relative POSIX path to the source markdown."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "doctrine_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3,
+      "description": "0=foundational doctrine anchor, 1=core, 2=applied, 3=tactical."
+    },
+    "connected_agents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "technical",
+          "macro",
+          "liquidity",
+          "risk",
+          "portfolio",
+          "sentiment",
+          "execution",
+          "research",
+          "supervisor"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "risk_level": {
+      "type": ["string", "null"],
+      "enum": ["low", "medium", "high", "tail", null]
+    },
+    "regime_relevance": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "risk-on",
+          "risk-off",
+          "deleveraging",
+          "late-cycle",
+          "early-cycle",
+          "liquidity-driven",
+          "stagflation",
+          "expansion",
+          "contraction"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "asset_class": {
+      "type": ["string", "null"],
+      "enum": [
+        "digital_assets",
+        "equities",
+        "fx",
+        "rates",
+        "commodities",
+        "credit",
+        "real_estate",
+        "alternatives",
+        null
+      ]
+    },
+    "strategy": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    },
+    "relationship_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "centrality": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "geom": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shape": {
+          "type": "string",
+          "enum": ["tetrahedron", "octahedron", "icosahedron", "dodecahedron"]
+        },
+        "scale": { "type": "number", "minimum": 0.5, "maximum": 3.0 },
+        "color_token": { "type": "string", "pattern": "^--[a-z0-9-]+$" }
+      },
+      "required": ["shape", "scale", "color_token"]
+    }
+  }
+}
